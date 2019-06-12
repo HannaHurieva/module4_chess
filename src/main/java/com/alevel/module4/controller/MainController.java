@@ -30,17 +30,4 @@ public class MainController {
         return "main";
     }
 
-    @PostMapping("/main")
-    public String addUser(@RequestParam String username,
-                      @RequestParam String password,
-                      Map<String, Object> model) {
-
-        User user = new User(username,password);
-        userService.save(user);
-
-        Iterable<User> users = userService.findAll(true);
-        model.put("users", users);
-        return "main";
-    }
-
 }
